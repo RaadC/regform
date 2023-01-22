@@ -1,9 +1,18 @@
 .container{
   background-color: blue;
   height: 100%;
+}
+.container form{
   display: grid;
+  row-gap: 20px;
+  justify-content: center;
 }
 .abovefield{
   display: grid;
-  grid-template-columns: 100px 100px;
+  grid-template-columns: 200px 200px;
+  column-gap: 20px;
+  row-gap: 20px;
+}
+.inputcontainer span{
+  color: red;
 }

@@ -1,5 +1,4 @@
 import { useState, React } from "react";
-import Link from "next/link";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -87,17 +86,65 @@ export default function Form() {
   return (
     <div className={styles.container}>
       <h1>No recess</h1>
-      <form>
+      <form onSubmit={handleSubmit((data) => submitForm(data))}>
         <div className={styles.abovefield}>
-          <input type="text" placeholder="First Name" />
-          <input type="text" placeholder="Last Name" />
-          <input type="text" placeholder="Email Address" />
-          <input type="text" placeholder="Address" />
-          <input type="text" placeholder="Mobile Number" />
-          <input type="text" placeholder="Old TUP Student?" />
+          <div className={styles.inputcontainer}>
+            <input
+              type="text"
+              placeholder="First Name"
+              {...register("firstname", { required: true })}
+            />
+            {errors.firstname && errors.firstname.type === "required" && (
+              <span>**</span>
+            )}
+          </div>
+          <div className={styles.inputcontainer}>
+            <input
+              type="text"
+              placeholder="Last Name"
+              {...register("lastname", { required: true })}
+            />
+            {errors.lastname && errors.lastname.type === "required" && (
+              <span>**</span>
+            )}
+          </div>
+          <div className={styles.inputcontainer}>
+            <input type="text" placeholder="Email Address" {...register("email", { required: true })} />
+            {errors.email && errors.email.type === "required" && (
+              <span>**</span>
+            )}
+          </div>
+          <div className={styles.inputcontainer}>
+            <input type="text" placeholder="Address" {...register("address", { required: true })} />
+            {errors.address && errors.address.type === "required" && (
+              <span>**</span>
+            )}
+          </div>
+          <div className={styles.inputcontainer}>
+            <input type="text" placeholder="Mobile Number" {...register("mobile", { required: true })}/>
+            {errors.mobile && errors.mobile.type === "required" && (
+              <span>**</span>
+            )}
+          </div>
+          <div className={styles.inputcontainer}>
+            <select
+              defaultValue=""
+              {...register("status")}
+              onChange={(e) => SelectValidator(e.target.value)}
+            >
+              <option value="" disabled>
+                Old TUP Student?
+              </option>
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
+          </div>
         </div>
         <div className={styles.belowfield}>
-        <input type="text" placeholder="Why do you want to study here?" />
+          <input type="text" placeholder="Why do you want to study here?" {...register("message", { required: true })}/>
+          {errors.message && errors.mobile.message === "required" && (
+            <span>**</span>
+          )}
         </div>
         <input type="submit" name="submit" values="Submit" />
       </form>
