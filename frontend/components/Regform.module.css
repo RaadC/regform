@@ -1,6 +1,7 @@
 .container{
   background-color: blue;
   height: 100%;
+  display: flex;
 }
 .abovefield{
   display: grid;
