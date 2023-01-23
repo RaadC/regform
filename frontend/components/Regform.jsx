@@ -122,7 +122,7 @@ export default function Form() {
           </div>
         </div>
         <div className={styles.row3}>
-          <div className={styles.inputcontainerRight}>
+          <div className={styles.inputcontainerLeft}>
             <textarea
               type="text"
               placeholder="Why do you want to study here?"
@@ -146,7 +146,7 @@ export default function Form() {
               <span>{errors.status?.message}</span>
             </div>
             <div className={styles.inputcontainerRight}>
-              <input type="submit" name="submit" values="Submit" />
+              <input className={styles.submitBtn} type="submit" name="submit" values="Submit" />
             </div>
           </div>
         </div>
