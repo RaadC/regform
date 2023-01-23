@@ -9,44 +9,36 @@ export default function Form() {
     firstname: yup
       .string()
       .label("First Name")
-      .required("***")
+      .required("*enter_first_name")
       .min(2)
       .max(20),
     lastname: yup
       .string()
       .label("Last Name")
-      .required("***")
+      .required("*enter_last_name")
       .min(2)
       .max(20),
     email: yup
       .string()
       .label("Email Address")
-      .required("***")
+      .required("enter_email")
       .min(10)
       .max(150)
-      .email("***"),
+      .email("enter_a_correct_email"),
     address: yup
       .string()
       .label("Address")
-      .required("***")
+      .required("enter_address")
       .min(10)
       .max(150),
     mobile: yup
       .string()
       .label("Mobile")
-      .required("************")
-      .matches(/09[0-9]{9}/, "************")
-      .max(11, "***********"),
-    status: yup
-      .string()
-      .label("TUP Student")
-      .required("***"),
-    message: yup
-      .string()
-      .label("Message")
-      .required("***")
-      .min(10)
-      .max(250, "***"),
+      .required("*enter_mobile_number")
+      .min(11, "*enter_correct_mobile_number")
+      .max(11, "*enter_correct_mobile_number"),
+    status: yup.string().label("TUP Student").required("*enter_yes_or_no"),
+    message: yup.string().label("Message").required("*enter_message"),
   });
 
   const {
@@ -81,9 +73,9 @@ export default function Form() {
 
   return (
     <div className={styles.container}>
-      <h1>TUP Registration Form</h1>
       <form onSubmit={handleSubmit((data) => submitForm(data))}>
-        <div className={styles.abovefield}>
+        <h1>TUP Registration Form</h1>
+        <div className={styles.row1}>
           <div className={styles.inputcontainerLeft}>
             <input
               type="text"
@@ -100,39 +92,64 @@ export default function Form() {
             />
             <span>{errors.lastname?.message}</span>
           </div>
-          <div className={styles.inputcontainerLeft}>
-            <input type="text" placeholder="Email Address" {...register("email", { required: true })} />
-            <span>{errors.email?.message}</span>
+        </div>
+        <div className={styles.row2}>
+          <div className={styles.row2group}>
+            <div className={styles.inputcontainerLeft}>
+              <input
+                type="text"
+                placeholder="Email Address"
+                {...register("email", { required: true })}
+              />
+              <span>{errors.email?.message}</span>
+            </div>
+            <div className={styles.inputcontainerLeft}>
+              <input
+                type="text"
+                placeholder="Mobile Number"
+                {...register("mobile", { required: true, maxLength: 10 })}
+              />
+              <span>{errors.mobile?.message}</span>
+            </div>
           </div>
           <div className={styles.inputcontainerRight}>
-            <input type="text" placeholder="Mobile Number" {...register("mobile", { required: true, maxLength: 10})}/>
-            <span>{errors.mobile?.message}</span>
-          </div>
-          <div className={styles.inputcontainerLeft}>
-            <input type="text" placeholder="Address" {...register("address", { required: true })} />
+            <input
+              type="text"
+              placeholder="Address"
+              {...register("address", { required: true })}
+            />
             <span>{errors.address?.message}</span>
           </div>
-          
+        </div>
+        <div className={styles.row3}>
           <div className={styles.inputcontainerRight}>
-            <select
-              defaultValue=""
-              {...register("status")}
-              onChange={(e) => SelectValidator(e.target.value)}
-            >
-              <option value="" disabled>
-                Old TUP Student?
-              </option>
-              <option value="1">Yes</option>
-              <option value="0">No</option>
-            </select>
-            <span>{errors.status?.message}</span>
+            <textarea
+              type="text"
+              placeholder="Why do you want to study here?"
+              {...register("message", { required: true })}
+            />
+            <span>{errors.message?.message}</span>
+          </div>
+          <div className={styles.row3group}>
+            <div className={styles.inputcontainerRight}>
+              <select
+                defaultValue=""
+                {...register("status")}
+                onChange={(e) => SelectValidator(e.target.value)}
+              >
+                <option value="" disabled>
+                  Old TUP Student?
+                </option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+              </select>
+              <span>{errors.status?.message}</span>
+            </div>
+            <div className={styles.inputcontainerRight}>
+              <input type="submit" name="submit" values="Submit" />
+            </div>
           </div>
         </div>
-        <div className={styles.belowfield}>
-          <textarea type="text" placeholder="Why do you want to study here?" {...register("message", { required: true })}/>
-          <span>{errors.message?.message}</span>
-        </div>
-        <input type="submit" name="submit" values="Submit" />
       </form>
     </div>
   );
