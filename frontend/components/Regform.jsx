@@ -123,7 +123,7 @@ export default function Form() {
         </div>
         <div className={styles.row3}>
           <div className={styles.inputcontainerLeft}>
-            <textarea
+            <textarea rows={5} cols={25}
               type="text"
               placeholder="Why do you want to study here?"
               {...register("message", { required: true })}

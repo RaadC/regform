@@ -1,5 +1,5 @@
 .container{
-  padding: 4rem;
+  padding-top: 4rem;
   background-color: rgb(63, 63, 67);
   text-align: center;
   height: 650px;
@@ -13,11 +13,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 80%;
+  width: 70%;
   margin: auto;
   background-color: rgb(181, 180, 180);
-  border-radius: 50px 0px 0px 50px;
-  padding: 20px 20px 20px 20px;
+  border-radius: 100px 0px 0px 100px;
+  padding: 20px 20px 80px 20px;
+  font-family: monospace;
 }
 .row1{
   display: flex;
@@ -49,6 +50,16 @@
 }
 .inputcontainerRight{
   display: flex;
+}
+.container form input,
+.row3group select,
+.inputcontainerLeft textarea{
+  padding: 10px 12px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 2px solid rgb(27, 26, 26);
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 .submitBtn{
   width: 100px;
