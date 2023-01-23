@@ -1,11 +1,19 @@
 .container{
   background-color: blue;
+  text-align: center;
   height: 100%;
 }
+.container span{
+  color: red;
+}
 .container form{
+  border: 3px solid #f1f1f1;
   display: grid;
   row-gap: 20px;
   justify-content: center;
+  width: 80%;
+  margin: auto;
+  background-color: pink;
 }
 .abovefield{
   display: grid;
@@ -13,6 +21,15 @@
   column-gap: 20px;
   row-gap: 20px;
 }
-.inputcontainer span{
-  color: red;
+.belowfield{
+  display: flex;
+  flex-direction: row-reverse;
 }
+.inputcontainerLeft{
+  display: flex;
+  flex-direction: row-reverse;
+}
+.inputcontainerRight{
+  display: flex;
+}
+

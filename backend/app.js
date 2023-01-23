@@ -23,7 +23,7 @@ app.use(cors());
 
 // CRUD Application
 // CREATE (insert)
-app.post("/register", (req, res) => {
+app.post("/registers", (req, res) => {
   const { firstname, lastname, email, mobile, status, address, message} = req.body;
 
   // insert to database
@@ -46,6 +46,21 @@ app.post("/register", (req, res) => {
       }
     }
   );
+});
+
+//read
+app.get("/registers", (req, res) => {
+  connection.query("SELECT * FROM tbl_information", (err, results) => {
+    try {
+      if (results.length > 0) {
+        res.json(results);
+      } else {
+        res.json({ message: "No data found." });
+      }
+    } catch (err) {
+      res.json({ message: err });
+    }
+  });
 });
 
 
