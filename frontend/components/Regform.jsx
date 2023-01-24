@@ -9,34 +9,34 @@ export default function Form() {
     firstname: yup
       .string()
       .label("First Name")
-      .required("*enter_first_name")
+      .required("*enter first name")
       .min(2)
       .max(20),
     lastname: yup
       .string()
       .label("Last Name")
-      .required("*enter_last_name")
+      .required("*enter last name")
       .min(2)
       .max(20),
     email: yup
       .string()
       .label("Email Address")
-      .required("enter_email")
+      .required("enter email")
       .min(10)
       .max(150)
-      .email("enter_a_correct_email"),
+      .email("enter a correct email"),
     address: yup
       .string()
       .label("Address")
-      .required("enter_address"),
+      .required("enter address"),
     mobile: yup
       .string()
       .label("Mobile")
-      .required("*enter_mobile_number")
-      .min(11, "*enter_correct_mobile_number")
-      .max(11, "*enter_correct_mobile_number"),
-    status: yup.string().label("TUP Student").required("*enter_yes_or_no"),
-    message: yup.string().label("Message").required("*enter_message"),
+      .required("*enter mobile number")
+      .min(11, "*enter correct mobile number")
+      .max(11, "*enter correct mobile number"),
+    status: yup.string().label("TUP Student").required("*enter yes or no"),
+    message: yup.string().label("Message").required("*enter message"),
   });
 
   const {
@@ -71,11 +71,12 @@ export default function Form() {
 
   return (
     <div className={styles.container}>
+      <img className= {styles.img} src="tuplogo.png" />
       <form onSubmit={handleSubmit((data) => submitForm(data))}>
         <h1>TUP Registration Form</h1>
         <div className={styles.row1}>
           <div className={styles.inputcontainerLeft}>
-            <input
+            <input className={styles.holder}
               type="text"
               placeholder="First Name"
               {...register("firstname", { required: true })}
@@ -83,7 +84,7 @@ export default function Form() {
             <span>{errors.firstname?.message}</span>
           </div>
           <div className={styles.inputcontainerRight}>
-            <input
+            <input className={styles.holder}
               type="text"
               placeholder="Last Name"
               {...register("lastname", { required: true })}
@@ -94,7 +95,7 @@ export default function Form() {
         <div className={styles.row2}>
           <div className={styles.row2group}>
             <div className={styles.inputcontainerLeft}>
-              <input
+              <input className={styles.holder}
                 type="text"
                 placeholder="Email Address"
                 {...register("email", { required: true })}
@@ -102,7 +103,7 @@ export default function Form() {
               <span>{errors.email?.message}</span>
             </div>
             <div className={styles.inputcontainerLeft}>
-              <input
+              <input className={styles.holder}
                 type="text"
                 placeholder="Mobile Number"
                 {...register("mobile", { required: true, maxLength: 10 })}
@@ -111,7 +112,7 @@ export default function Form() {
             </div>
           </div>
           <div className={styles.inputcontainerRight}>
-            <textarea
+            <textarea className={styles.address}
               rows={4}
               cols={20}
               type="text"
@@ -134,7 +135,7 @@ export default function Form() {
           </div>
           <div className={styles.row3group}>
             <div className={styles.inputcontainerRight}>
-              <select
+              <select className= {styles.old}
                 defaultValue=""
                 {...register("status")}
                 onChange={(e) => SelectValidator(e.target.value)}
