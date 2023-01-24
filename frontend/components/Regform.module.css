@@ -1,14 +1,14 @@
-.container{
+.container {
   padding-top: 4rem;
   background-color: rgb(63, 63, 67);
   text-align: center;
   height: 650px;
 }
-.container span{
+.container span {
   color: red;
   font-size: 9px;
 }
-.container form{
+.container form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,41 +20,41 @@
   padding: 20px 20px 80px 20px;
   font-family: monospace;
 }
-.row1{
+.row1 {
   display: flex;
   column-gap: 50px;
 }
-.row2{
-  display: flex;
-  column-gap: 50px;
-  margin-top: 15px;
-}
-.row2group{
-  display: flex;
-  flex-direction: column;
-  row-gap: 15px;
-}
-.row3{
+.row2 {
   display: flex;
   column-gap: 50px;
   margin-top: 15px;
 }
-.row3group{
+.row2group {
   display: flex;
   flex-direction: column;
   row-gap: 15px;
 }
-.inputcontainerLeft{
+.row3 {
+  display: flex;
+  column-gap: 50px;
+  margin-top: 15px;
+}
+.row3group {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+.inputcontainerLeft {
   display: flex;
   flex-direction: row-reverse;
 }
-.inputcontainerRight{
+.inputcontainerRight {
   display: flex;
 }
 .container form input,
 .row3group select,
 .inputcontainerLeft textarea,
-.inputcontainerRight textarea{
+.inputcontainerRight textarea {
   padding: 10px 12px;
   margin: 8px 0;
   display: inline-block;
@@ -62,7 +62,7 @@
   border-radius: 4px;
   box-sizing: border-box;
 }
-.submitBtn{
+.submitBtn {
   width: 100px;
   background-color: #110f12;
   color: white;
@@ -71,8 +71,6 @@
   cursor: pointer;
   transition: 0.5s;
 }
-.submitBtn:hover{
+.submitBtn:hover {
   background-color: #1d1a1f;
 }
-
-

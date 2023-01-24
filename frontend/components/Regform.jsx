@@ -28,9 +28,7 @@ export default function Form() {
     address: yup
       .string()
       .label("Address")
-      .required("enter_address")
-      .min(10)
-      .max(150),
+      .required("enter_address"),
     mobile: yup
       .string()
       .label("Mobile")
@@ -113,7 +111,9 @@ export default function Form() {
             </div>
           </div>
           <div className={styles.inputcontainerRight}>
-          <textarea rows={4} cols={20}
+            <textarea
+              rows={4}
+              cols={20}
               type="text"
               placeholder="Address"
               {...register("address", { required: true })}
@@ -123,7 +123,9 @@ export default function Form() {
         </div>
         <div className={styles.row3}>
           <div className={styles.inputcontainerLeft}>
-            <textarea rows={4} cols={20}
+            <textarea
+              rows={4}
+              cols={20}
               type="text"
               placeholder="Why do you want to study here?"
               {...register("message", { required: true })}
@@ -146,7 +148,12 @@ export default function Form() {
               <span>{errors.status?.message}</span>
             </div>
             <div className={styles.inputcontainerRight}>
-              <input className={styles.submitBtn} type="submit" name="submit" values="Submit" />
+              <input
+                className={styles.submitBtn}
+                type="submit"
+                name="submit"
+                values="Submit"
+              />
             </div>
           </div>
         </div>
