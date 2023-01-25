@@ -21,12 +21,11 @@ app.use(bodyParser.json());
 // cors
 app.use(cors());
 
-// CRUD Application
-// CREATE (insert)
+
+//insert
 app.post("/registers", (req, res) => {
   const { firstname, lastname, email, mobile, status, address, message} = req.body;
 
-  // insert to database
   connection.query(
 
     "INSERT INTO tbl_information(firstname, lastname, email, mobile, status, address, message) VALUES (?, ?, ?, ?, ?, ?, ?)",
@@ -34,12 +33,12 @@ app.post("/registers", (req, res) => {
     (err, results) => {
       try {
         if (results.affectedRows > 0) {
-          res.json({ message: "Data has been added!" });
+          res.json({ message: "A user has been registered!" });
         } 
         else if (err) {
           res.json({ message: err });
       }else {
-          res.json({ message: "Something went wrong!" });
+          res.json({ message: "Ooops, something went wrong!" });
         }
       } catch (err) {
         res.json({ message: err });

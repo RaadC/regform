@@ -5,22 +5,6 @@
   text-align: center;
   height: 650px;
 }
-.container h1 {
-  font-size: 54px;
-  color: white;
-}
-.holder {
-  width: 289px;
-  height: 45px;
-}
-.inputcontainerRight textarea {
-  width: 350px;
-  height: 80px;
-}
-.old {
-  width: 277px;
-  height: 44px;
-}
 .img {
   justify-content: center;
   width: 200px;
@@ -28,11 +12,6 @@
   display: flex;
   margin:auto;
   margin-top: 100px;
-
-}
-.container span {
-  color: red;
-  font-size: 9px;
 }
 .container form {
   display: flex;
@@ -87,6 +66,38 @@
   display: flex;
   position: relative;
 }
+.container h1 {
+  font-size: 54px;
+  color: white;
+}
+.container span {
+  color: red;
+  font-size: 9px;
+}
+.holder {
+  width: 289px;
+  height: 45px;
+}
+.inputcontainerRight textarea {
+  width: 350px;
+  height: 80px;
+}
+.old {
+  width: 277px;
+  height: 44px;
+}
+.container form input,
+.row3group select,
+.inputcontainerLeft textarea,
+.inputcontainerRight textarea {
+  padding: 10px 12px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 2px solid rgb(27, 26, 26);
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: monospace;
+}
 .inputcontainerLeft span{
   position: absolute;
   margin-top: -5px;
@@ -99,18 +110,6 @@
 .inputcontainerLeft ::placeholder,
 .inputcontainerRight ::placeholder,
 .row3group select{
-  font-family: monospace;
-}
-.container form input,
-.row3group select,
-.inputcontainerLeft textarea,
-.inputcontainerRight textarea {
-  padding: 10px 12px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 2px solid rgb(27, 26, 26);
-  border-radius: 4px;
-  box-sizing: border-box;
   font-family: monospace;
 }
 .submitBtn {

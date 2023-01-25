@@ -21,14 +21,14 @@ export default function Form() {
     email: yup
       .string()
       .label("Email Address")
-      .required("enter email")
+      .required("*enter email")
       .min(10)
       .max(150)
       .email("enter a correct email"),
     address: yup
       .string()
       .label("Address")
-      .required("enter address"),
+      .required("*enter address"),
     mobile: yup
       .string()
       .label("Mobile")
@@ -112,7 +112,7 @@ export default function Form() {
             </div>
           </div>
           <div className={styles.inputcontainerRight}>
-            <textarea className={styles.address}
+            <textarea
               rows={4}
               cols={20}
               type="text"
